@@ -18,11 +18,17 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="134dp"
+            android:gravity="center"
             android:text="Awareness"
             android:textSize="50sp"
-            android:textStyle="bold"
-            android:gravity="center"/>
+            android:textStyle="bold" />
+
+        <fragment
+            android:id="@+id/awarness_text_fragment"
+            android:name="com.example.mentalawareness.AwarenessFragment"
+            android:layout_width="match_parent"
+            android:layout_height="546dp" />
 
     </LinearLayout>
 

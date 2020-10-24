@@ -18,11 +18,17 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="134dp"
+            android:gravity="center"
             android:text="Coping Methods"
             android:textSize="50sp"
-            android:textStyle="bold"
-            android:gravity="center"/>
+            android:textStyle="bold" />
+
+        <fragment
+            android:id="@+id/fragment"
+            android:name="com.example.mentalawareness.CopingFragment"
+            android:layout_width="match_parent"
+            android:layout_height="541dp" />
 
     </LinearLayout>
 
