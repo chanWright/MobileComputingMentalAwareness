@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">MentalAwareness</string>
+    <string name="large_text">
+        "Mental Awareness"\n\n
+
+        "How to spot it"\n\n
+
+        "There are two ways to spot the signs, both physical and mental."\n\n
+
+        "Here are some physical signs:"\n\n
+
+        "-Lack of energy"\n
+        "-Restlessness and agitation"\n
+        "-Having difficulty sleeping (or sleeping more than usual)"\n
+        "-Poor appetite, which may lead to weight loss"\n
+        "-Lack of interest in sex"\n
+        "-Unexplained physical aches and pains"\n
+        "-Self-harming"\n\n
+
+        "Next, some emotional signs of depression."\n
+        "Some of which are easy to spot, while some are harder:"\n\n
+
+        "Feeling sad and in low spirits all the time, and crying a lot"\n
+        "Having no interest in anything, not getting any pleasure out of life"\n
+        "Feeling anxious all of the time"\n
+        "Having difficulty concentrating or remembering things"\n
+        "Low self-confidence and self-esteem"\n
+        "Being more irritable and impatient than usual"\n
+        "Feeling helpless and hopeless"\n
+        "Feeling guilty"\n
+
+
+
+
+    </string>
 </resources>
