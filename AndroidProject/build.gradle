@@ -16,6 +16,11 @@ allprojects {
     repositories {
         google()
         jcenter()
+
+        //Added CometCo dependacy
+        maven {
+            url "https://dl.bintray.com/cometchat/pro"
+        }
     }
 }
 
