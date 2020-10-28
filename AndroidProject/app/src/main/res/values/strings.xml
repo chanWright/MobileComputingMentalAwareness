@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MentalAwareness</string>
+    <string name="large_text">
+        "Mental Awarness"
+
+        "How to spot it"/n/n
+
+    </string>
 </resources>

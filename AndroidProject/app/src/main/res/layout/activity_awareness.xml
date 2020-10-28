@@ -24,11 +24,24 @@
             android:textSize="50sp"
             android:textStyle="bold" />
 
-        <fragment
-            android:id="@+id/awarness_text_fragment"
-            android:name="com.example.mentalawareness.AwarenessFragment"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="546dp" />
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/large_text"
+                    android:textColor="@android:color/black"/>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>
 
