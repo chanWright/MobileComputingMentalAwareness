@@ -17,6 +17,7 @@ import com.cometchat.pro.models.User;
 public class ChatActivity extends AppCompatActivity {
     DrawerLayout dlayout;
     long userID = 0;
+    String authKey = "91672a90de9bc03025323ad1a744b0ddb9c90afa";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,23 +52,36 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        userID += 12;
-        String id = "" + userID;
-        String authKey = "91672a90de9bc03025323ad1a744b0ddb9c90afa";
-        EditText userNameET = findViewById(R.id.userNameET);
         Button submitBTN = findViewById(R.id.submitBTN);
-        User user = new User();
-        user.setUid(id);
-        user.setName(userNameET.getText().toString());
-
-
         submitBTN.setOnClickListener(view -> {
+            userID += 12;
+            String id = "" + userID;
+            EditText userNameET = findViewById(R.id.userNameET);
+            User user = new User();
+            user.setUid(id);
+            user.setName(userNameET.getText().toString());
+
+            //Create User
+            CometChat.createUser(user, authKey, new CometChat.CallbackListener<User>() {
+                @Override
+                public void onSuccess(User user) {
+                    Log.d("createUser", user.toString());
+                }
+
+                @Override
+                public void onError(CometChatException e) {
+                    Log.e("createUser", e.getMessage());
+                }
+            });
+
+            // Login User
             if (CometChat.getLoggedInUser() == null) {
                 CometChat.login(id, authKey, new CometChat.CallbackListener<User>() {
 
                     @Override
                     public void onSuccess(User user1) {
                         Log.d("Login: ", "Login Successful : " + user1.toString());
+                        redirectToChatPage();
                     }
 
                     @Override
@@ -79,6 +93,10 @@ public class ChatActivity extends AppCompatActivity {
                 // User already logged in
             }
         });
+    }
+
+    private void redirectToChatPage() {
+        GroupListActivity.start(this);
     }
 
 
