@@ -6,14 +6,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Bundle;
 import android.view.View;
 
-public class MapsActivity extends AppCompatActivity {
-
+public class ChatActivity extends AppCompatActivity {
     DrawerLayout dlayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
+        setContentView(R.layout.activity_chat);
 
         dlayout = findViewById(R.id.drawer);
     }
@@ -37,7 +36,7 @@ public class MapsActivity extends AppCompatActivity {
     }
 
     public void ClickMaps(View v) {
-        recreate();
+        MainActivity.redirectActivity(this, MapsActivity.class);
     }
 
     public void ClickGame(View v) {
@@ -53,7 +52,7 @@ public class MapsActivity extends AppCompatActivity {
     }
 
     public void ClickChat(View v) {
-        MainActivity.redirectActivity(this, ChatActivity.class);
+        recreate();
     }
 
     @Override

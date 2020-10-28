@@ -70,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
         redirectActivity(this, CopingMethodsActivity.class);
     }
 
+    public void ClickChat(View v) {
+        //Go to Chat Activity
+        MainActivity.redirectActivity(this, ChatActivity.class);
+    }
+
     /*Function takes in an Activity and class
     * Creates an Intent for the activity
     * Starts activity*/
