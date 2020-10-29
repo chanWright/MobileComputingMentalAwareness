@@ -11,15 +11,13 @@ import android.widget.TextView;
 
 import java.util.Timer;
 
-public class GameActivity extends AppCompatActivity implements Runnable{
+public class GameActivity extends AppCompatActivity{
     DrawerLayout dlayout;
 
     ImageView[] gameObjects = new ImageView[4];
     TextView scoreTV;
     TextView timerTV;
-    double timer = 0.0;
-    double maxTime = 60.0;
-    double startTime = 0.0;
+    double spawnTime = 5.0;
     int score = 0;
 
     @Override
@@ -34,11 +32,19 @@ public class GameActivity extends AppCompatActivity implements Runnable{
         gameObjects[3] = findViewById(R.id.gameObject3);
         scoreTV = findViewById(R.id.scoreTextView);
         timerTV = findViewById(R.id.timerTextView);
-        ObjectAnimator animator = ObjectAnimator.ofFloat(gameObjects[0],"translationX",100f);
-        animator.setDuration(2000);
-        animator.start();
-        startTime = System.nanoTime() / 1000000;
-        run();
+        for (final ImageView object:gameObjects)
+        {
+            object.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View v){
+                    onGameObjectClick(object);
+                    score += 1;
+                    scoreTV.setText("Score: "+score);
+                }
+            });
+        }
+        //ObjectAnimator animator = ObjectAnimator.ofFloat(gameObjects[0],"translationX",100f);
+        //animator.setDuration(2000);
+        //animator.start();
     }
 
     // Code for Navigation Begins Here
@@ -81,20 +87,30 @@ public class GameActivity extends AppCompatActivity implements Runnable{
         MainActivity.closeDrawer(dlayout);
     }
 
-    @Override
-    public void run() {
-        while (timer <= maxTime){
-            timer = ((System.nanoTime() / 1000000) - startTime);
-            timerTV.setText("Timer: "+(maxTime-timer));
+    public void fadeAway(ImageView object){
+        while(object.getAlpha() > 0){
+            object.setAlpha(object.getAlpha() - 0.01f);
         }
-        if (timer >= maxTime){
-            for (ImageView object:gameObjects)
-            {
-                while(object.getAlpha() > 0) {
-                    object.setAlpha(object.getAlpha() - 0.1f);
-                }
+        fadeIn(object);
+    }
+    public void fadeIn(ImageView object){
+        double startTime = System.currentTimeMillis()/1000;
+        double timer = 0;
+        while(timer < spawnTime) {
+            timer = (System.currentTimeMillis() / 1000 - startTime);
+        }
+        if(timer >= spawnTime) {
+            while (object.getAlpha() < 1) {
+                object.setAlpha(object.getAlpha() + 0.01f);
             }
         }
+    }
+    public void onGameObjectClick(final ImageView gameObj){
+        new Thread(new Runnable(){
+            public void run(){
+                fadeAway(gameObj);
+            }
+        }).start();
     }
     // Code for Navigation Ends Here
 
