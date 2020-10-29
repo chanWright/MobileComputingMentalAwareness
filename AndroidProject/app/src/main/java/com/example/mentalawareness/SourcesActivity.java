@@ -52,6 +52,10 @@ public class SourcesActivity extends AppCompatActivity {
         MainActivity.redirectActivity(this, CopingMethodsActivity.class);
     }
 
+    public void ClickChat(View v) {
+        MainActivity.redirectActivity(this, ChatActivity.class);
+    }
+
     @Override
     protected void onPause() {
         super.onPause();

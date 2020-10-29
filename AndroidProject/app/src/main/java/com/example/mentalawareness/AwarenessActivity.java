@@ -51,6 +51,9 @@ public class AwarenessActivity extends AppCompatActivity {
     public void ClickCopingMethods(View v) {
         MainActivity.redirectActivity(this, CopingMethodsActivity.class);
     }
+    public void ClickChat(View v) {
+        MainActivity.redirectActivity(this, ChatActivity.class);
+    }
 
     @Override
     protected void onPause() {

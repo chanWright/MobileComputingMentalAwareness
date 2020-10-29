@@ -53,6 +53,10 @@ public class CopingMethodsActivity extends AppCompatActivity {
         recreate();
     }
 
+    public void ClickChat(View v) {
+        MainActivity.redirectActivity(this, ChatActivity.class);
+    }
+
     @Override
     protected void onPause() {
         super.onPause();

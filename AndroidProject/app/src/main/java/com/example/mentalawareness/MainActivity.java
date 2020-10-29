@@ -7,7 +7,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+
+import com.cometchat.pro.core.AppSettings;
+import com.cometchat.pro.core.CometChat;
+import com.cometchat.pro.exceptions.CometChatException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -68,6 +73,11 @@ public class MainActivity extends AppCompatActivity {
     public void ClickCopingMethods(View v) {
         // Go to CopingMethods Activity
         redirectActivity(this, CopingMethodsActivity.class);
+    }
+
+    public void ClickChat(View v) {
+        //Go to Chat Activity
+        MainActivity.redirectActivity(this, ChatActivity.class);
     }
 
     /*Function takes in an Activity and class
