@@ -42,4 +42,8 @@ dependencies {
 
     //Added Chat kit android
     implementation 'com.github.stfalcon:chatkit:0.3.3'
+
+    //Recycler view dependacies for group list
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }
