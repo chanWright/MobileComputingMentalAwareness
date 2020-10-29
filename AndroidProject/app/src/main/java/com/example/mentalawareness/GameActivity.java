@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Random;
 import java.util.Timer;
 
 public class GameActivity extends AppCompatActivity{
@@ -42,9 +43,6 @@ public class GameActivity extends AppCompatActivity{
                 }
             });
         }
-        //ObjectAnimator animator = ObjectAnimator.ofFloat(gameObjects[0],"translationX",100f);
-        //animator.setDuration(2000);
-        //animator.start();
     }
 
     // Code for Navigation Begins Here
@@ -111,6 +109,25 @@ public class GameActivity extends AppCompatActivity{
                 fadeAway(gameObj);
             }
         }).start();
+        Random randomNum = new Random();
+        if(randomNum.nextBoolean()) {
+            int moveDistance = randomNum.nextInt(200);
+            if(randomNum.nextBoolean()){
+                moveDistance *= -1;
+            }
+            ObjectAnimator animator = ObjectAnimator.ofFloat(gameObj, "translationX", moveDistance);
+            animator.setDuration(1000);
+            animator.start();
+        }
+        else{
+            int moveDistance = randomNum.nextInt(200);
+            if(randomNum.nextBoolean()){
+                moveDistance *= -1;
+            }
+            ObjectAnimator animator = ObjectAnimator.ofFloat(gameObj, "translationY", moveDistance);
+            animator.setDuration(1000);
+            animator.start();
+        }
     }
     // Code for Navigation Ends Here
 
