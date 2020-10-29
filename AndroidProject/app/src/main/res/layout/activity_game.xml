@@ -16,13 +16,85 @@
         <include
             layout="@layout/main_toolbar"/>
 
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Game"
-            android:textSize="50sp"
-            android:textStyle="bold"
-            android:gravity="center"/>
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/scoreTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="Score: "
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/timerTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:text="Timer:"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/scoreTextView" />
+
+            <ImageView
+                android:id="@+id/gameObject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="69dp"
+                android:clickable="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/scoreTextView"
+                app:srcCompat="@android:drawable/alert_dark_frame" />
+
+            <ImageView
+                android:id="@+id/gameObject1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="262dp"
+                android:layout_marginTop="221dp"
+                android:clickable="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/scoreTextView"
+                app:srcCompat="@android:drawable/alert_dark_frame" />
+
+            <ImageView
+                android:id="@+id/gameObject2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="106dp"
+                android:layout_marginTop="389dp"
+                android:clickable="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/scoreTextView"
+                app:srcCompat="@android:drawable/alert_dark_frame" />
+
+            <ImageView
+                android:id="@+id/gameObject3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="128dp"
+                android:layout_marginTop="139dp"
+                android:clickable="true"
+                app:layout_constraintStart_toEndOf="@+id/gameObject2"
+                app:layout_constraintTop_toBottomOf="@+id/gameObject1"
+                app:srcCompat="@android:drawable/alert_dark_frame" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 
