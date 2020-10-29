@@ -59,7 +59,8 @@ public class ChatPageActivity extends AppCompatActivity {
 
     private void fetchPreviousMessages() {
         int limit = 50;
-        MessagesRequest messagesRequest = new MessagesRequest.MessagesRequestBuilder().setLimit(limit).build();
+        String guid =  groupId;//Updated
+        MessagesRequest messagesRequest = new MessagesRequest.MessagesRequestBuilder().setGUID(guid).setLimit(limit).build();
 
         messagesRequest.fetchPrevious(new CometChat.CallbackListener<List<BaseMessage>>() {
             @Override
@@ -83,6 +84,7 @@ public class ChatPageActivity extends AppCompatActivity {
                 Log.d("Fetch Message", "Message fetching failed with exception: " + e.getMessage());
             }
         });
+
     }
 
     private void addListener() {

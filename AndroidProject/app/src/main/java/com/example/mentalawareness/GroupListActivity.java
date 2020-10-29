@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 
 import com.cometchat.pro.constants.CometChatConstants;
 import com.cometchat.pro.core.CometChat;
@@ -19,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GroupListActivity extends AppCompatActivity {
+    GroupsAdapter groupsAdapter;
+    RecyclerView groupRv;
 
     public static void start(Context context) {
         Intent starter = new Intent(context, GroupListActivity.class);
@@ -31,32 +34,20 @@ public class GroupListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_group_list);
 
         //Create group request
-        //createGroup();
+        Button createGroupBTN = findViewById(R.id.createGroupBTN);
+        createGroupBTN.setOnClickListener(view -> {
+            createGroup();
+        });
+
         //Retrieve Groups
-
-
         getGroupList();
     }
 
-    /*private void createGroup() {
-        String GUID = "GUID";
-        String groupName = "Hello Group!";
-        String groupType = CometChatConstants.GROUP_TYPE_PUBLIC;
-        String password = "";
-
-        Group group = new Group(GUID, groupName, groupType, password);
-
-        CometChat.createGroup(group, new CometChat.CallbackListener<Group>(){
-            @Override
-            public void onSuccess(Group group) {
-                Log.d("Create Group : ", "Group created successfully: " + group.toString());
-            }
-            @Override
-            public void onError(CometChatException e) {
-                Log.d("Create Group : ", "Group creation failed with exception: " + e.getMessage());
-            }
-        });
-    }*/
+    private void createGroup() {
+        Log.d("Create Group: ", " I entered this function");
+        CreateGroupActivity.start(this);
+        updateAdapter();
+    }
 
     private void getGroupList() {
 
@@ -82,10 +73,14 @@ public class GroupListActivity extends AppCompatActivity {
 
     private void updateUI(List<Group> list) {
         Log.d("Update List: ", "I entered this function");
-        RecyclerView groupRv = findViewById(R.id.groupRV);
-        GroupsAdapter groupsAdapter = new GroupsAdapter(list, this);
+        groupRv = findViewById(R.id.groupRV);
+        groupsAdapter = new GroupsAdapter(list, this);
         groupRv.setAdapter(groupsAdapter);
         groupRv.setLayoutManager(new LinearLayoutManager(this));
+    }
 
+    private void updateAdapter(){
+        Log.d("Update Adapter: ", "I entered this function");
+        groupsAdapter.notifyItemInserted(groupsAdapter.getItemCount());
     }
 }
