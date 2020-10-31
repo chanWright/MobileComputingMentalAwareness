@@ -12,7 +12,9 @@ Activities: We can have slides that have the general signs, and advice. This adv
 * Destress game: A short game with optional music in the background.
     * The game will be a 60 second timed game to pop as many bubbles as possible on screen to get a numerical score. There will not be a high score (cannot see previous best), bubbles will initially move quickly on entering the screen but slow down the longer they are on screen, bouncing off of walls. The max amount of bubbles that can be on screen at once will be at max half of the screen to allow movement.
 * Chat feature : A community where people can talk with others 
-    * Outside Api Firebase
+    * CometChat
+    * Chatkit for Android
 
 Credit:
 YouTube Channel Android Coding: https://www.youtube.com/watch?v=iesMhKUtYT8
+YouTube Channel CometChat: https://www.youtube.com/watch?v=cNY8nnzRcw0 
