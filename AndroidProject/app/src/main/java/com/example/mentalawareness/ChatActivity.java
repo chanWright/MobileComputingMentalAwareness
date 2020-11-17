@@ -14,8 +14,7 @@ import com.cometchat.pro.core.AppSettings;
 import com.cometchat.pro.core.CometChat;
 import com.cometchat.pro.exceptions.CometChatException;
 import com.cometchat.pro.models.User;
-
-import java.util.Random;
+import com.example.mentalawareness.Chat_Activities.GroupListActivity;
 
 public class ChatActivity extends AppCompatActivity {
     DrawerLayout dlayout;

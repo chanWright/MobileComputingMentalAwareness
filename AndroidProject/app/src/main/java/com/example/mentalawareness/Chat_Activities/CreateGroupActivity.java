@@ -1,4 +1,4 @@
-package com.example.mentalawareness;
+package com.example.mentalawareness.Chat_Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,7 @@ import com.cometchat.pro.constants.CometChatConstants;
 import com.cometchat.pro.core.CometChat;
 import com.cometchat.pro.exceptions.CometChatException;
 import com.cometchat.pro.models.Group;
+import com.example.mentalawareness.R;
 
 public class CreateGroupActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.mentalawareness;
+package com.example.mentalawareness.Chat_Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,13 +10,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 
-import com.cometchat.pro.constants.CometChatConstants;
 import com.cometchat.pro.core.CometChat;
 import com.cometchat.pro.core.GroupsRequest;
 import com.cometchat.pro.exceptions.CometChatException;
 import com.cometchat.pro.models.Group;
+import com.example.mentalawareness.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class GroupListActivity extends AppCompatActivity {
