@@ -10,8 +10,8 @@
         android:id="@+id/input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:inputHint="Enter Your Message"/>
+        app:inputHint="Enter Your Message"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <com.stfalcon.chatkit.messages.MessagesList
         android:id="@+id/messagesList"

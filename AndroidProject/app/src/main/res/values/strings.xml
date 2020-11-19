@@ -33,4 +33,7 @@
 
 
     </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="sign_up_intro">Already have an account, click login to sign in</string>
+    <string name="login_intro"> Dont have an accout yet? click Sign up to create one</string>
 </resources>
