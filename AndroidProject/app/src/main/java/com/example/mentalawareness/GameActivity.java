@@ -17,7 +17,6 @@ public class GameActivity extends AppCompatActivity{
 
     ImageView[] gameObjects = new ImageView[4];
     TextView scoreTV;
-    TextView timerTV;
     double spawnTime = 5.0;
     int score = 0;
 
@@ -32,7 +31,6 @@ public class GameActivity extends AppCompatActivity{
         gameObjects[2] = findViewById(R.id.gameObject2);
         gameObjects[3] = findViewById(R.id.gameObject3);
         scoreTV = findViewById(R.id.scoreTextView);
-        timerTV = findViewById(R.id.timerTextView);
         for (final ImageView object:gameObjects)
         {
             object.setOnClickListener(new View.OnClickListener(){
