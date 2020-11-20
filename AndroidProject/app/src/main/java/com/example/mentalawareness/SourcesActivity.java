@@ -2,6 +2,8 @@ package com.example.mentalawareness;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +11,9 @@ import android.view.View;
 public class SourcesActivity extends AppCompatActivity {
 
     DrawerLayout dlayout;
+    private RecyclerView sourseRV = null;
+    private SourcesModel myModel = null;
+    private SourceAdapter myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +21,14 @@ public class SourcesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sources);
 
         dlayout = findViewById(R.id.drawer);
+
+        myModel = SourcesModel.getModel();
+        myAdapter = new SourceAdapter();
+
+        sourseRV = findViewById(R.id.sourceRV);
+        sourseRV.setAdapter(myAdapter);
+        LinearLayoutManager lin = new LinearLayoutManager(this);
+        sourseRV.setLayoutManager(lin);
     }
 
     // Code for Navigation Begins Here
