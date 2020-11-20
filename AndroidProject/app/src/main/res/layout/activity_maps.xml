@@ -16,13 +16,11 @@
         <include
             layout="@layout/main_toolbar"/>
 
-        <TextView
+        <fragment
+            android:id="@+id/mapFragment"
+            android:name="com.example.mentalawareness.MapFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Map"
-            android:textSize="50sp"
-            android:textStyle="bold"
-            android:gravity="center"/>
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 

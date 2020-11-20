@@ -6,6 +6,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.android.gms.maps.MapView;
+
 public class MapsActivity extends AppCompatActivity {
 
     DrawerLayout dlayout;
