@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cometchat.pro.core.AppSettings;
@@ -38,29 +39,32 @@ public class ChatActivity extends AppCompatActivity implements Login_Fragment.Lo
         logoutPrevUser();
 
 
-        //login user
-
+        //Set up Fragments
         Login_Fragment loginFRG = Login_Fragment.newInstance();
         SignUp_Fragment signUpFRG = SignUp_Fragment.newInstance();
         FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
         trans.add(R.id.fragment_container, loginFRG, "LOGIN_FRG");
         trans.add(R.id.fragment_container, signUpFRG, "SIGNUP_FRG");
-        trans.hide(loginFRG);
+        trans.hide(signUpFRG);
 
         trans.commit();
 
-
+        //Set up Logout on click listener
         Button logoutBTN = findViewById(R.id.logoutBTN);
         logoutBTN.setOnClickListener(view -> {
             logoutPrevUser();
         });
 
+
+
     }
 
     private void logoutPrevUser() {
+        //String user = CometChat.getLoggedInUser().getName();
         CometChat.logout(new CometChat.CallbackListener<String>() {
             @Override
             public void onSuccess(String successMessage) {
+                //Toast.makeText(getApplicationContext(), user + " Logged Out Sucessfully!", Toast.LENGTH_SHORT).show();
                 Log.d("Logout: ", "Logout completed successfully");
             }
             @Override

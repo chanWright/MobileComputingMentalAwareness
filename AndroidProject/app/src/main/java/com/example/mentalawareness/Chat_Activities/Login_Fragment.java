@@ -87,7 +87,7 @@ public class Login_Fragment extends Fragment {
                 loginIDET.setText("");
                 return;
             }
-            myActivity.loginUser(UID);
+            myActivity.loginUser(UID.trim());
             loginIDET.setText("");
         });
 
