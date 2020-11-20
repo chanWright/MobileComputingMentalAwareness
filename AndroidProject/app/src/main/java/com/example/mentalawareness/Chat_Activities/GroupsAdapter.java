@@ -1,4 +1,4 @@
-package com.example.mentalawareness;
+package com.example.mentalawareness.Chat_Activities;
 
 import android.content.Context;
 import android.util.Log;
@@ -16,6 +16,7 @@ import com.cometchat.pro.constants.CometChatConstants;
 import com.cometchat.pro.core.CometChat;
 import com.cometchat.pro.exceptions.CometChatException;
 import com.cometchat.pro.models.Group;
+import com.example.mentalawareness.R;
 
 import java.util.List;
 

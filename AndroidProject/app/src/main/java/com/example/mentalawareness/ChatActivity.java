@@ -2,22 +2,26 @@ package com.example.mentalawareness;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cometchat.pro.core.AppSettings;
 import com.cometchat.pro.core.CometChat;
 import com.cometchat.pro.exceptions.CometChatException;
 import com.cometchat.pro.models.User;
+import com.example.mentalawareness.Chat_Activities.GroupListActivity;
+import com.example.mentalawareness.Chat_Activities.Login_Fragment;
+import com.example.mentalawareness.Chat_Activities.SignUp_Fragment;
 
-import java.util.Random;
-
-public class ChatActivity extends AppCompatActivity {
+public class ChatActivity extends AppCompatActivity implements Login_Fragment.Login_Responder, SignUp_Fragment.SignUp_Responder {
     DrawerLayout dlayout;
     String authKey = "91672a90de9bc03025323ad1a744b0ddb9c90afa";
     User user;
@@ -30,39 +34,37 @@ public class ChatActivity extends AppCompatActivity {
         dlayout = findViewById(R.id.drawer);
         //CometChat
         initCometChat();
-        //initViews();
 
+        //logout any user logined before
         logoutPrevUser();
 
-        Button submitBTN = findViewById(R.id.submitBTN);
-        submitBTN.setOnClickListener(view -> {
-            // Login User
-            loginUser();
 
-        });
+        //Set up Fragments
+        Login_Fragment loginFRG = Login_Fragment.newInstance();
+        SignUp_Fragment signUpFRG = SignUp_Fragment.newInstance();
+        FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
+        trans.add(R.id.fragment_container, loginFRG, "LOGIN_FRG");
+        trans.add(R.id.fragment_container, signUpFRG, "SIGNUP_FRG");
+        trans.hide(signUpFRG);
 
+        trans.commit();
+
+        //Set up Logout on click listener
         Button logoutBTN = findViewById(R.id.logoutBTN);
         logoutBTN.setOnClickListener(view -> {
             logoutPrevUser();
         });
 
-        Button newUserBTN = findViewById(R.id.newUserBTN);
-        newUserBTN.setOnClickListener(view -> {
-            EditText userIDET = findViewById(R.id.userIDET);
-            EditText userNameET = findViewById(R.id.userNameET);
-            user = new User();
-            user.setUid(userIDET.getText().toString());
-            user.setName(userNameET.getText().toString());
 
-            //User
-            creatUser(user);
-        });
+
     }
 
     private void logoutPrevUser() {
+        //String user = CometChat.getLoggedInUser().getName();
         CometChat.logout(new CometChat.CallbackListener<String>() {
             @Override
             public void onSuccess(String successMessage) {
+                //Toast.makeText(getApplicationContext(), user + " Logged Out Sucessfully!", Toast.LENGTH_SHORT).show();
                 Log.d("Logout: ", "Logout completed successfully");
             }
             @Override
@@ -92,28 +94,13 @@ public class ChatActivity extends AppCompatActivity {
         });
     }
 
-    private void initViews() {
-        /*Button submitBTN = findViewById(R.id.submitBTN);
-        submitBTN.setOnClickListener(view -> {
-            userID += rand.nextLong();
-            String id = "" + userID;
-            EditText userNameET = findViewById(R.id.userNameET);
-            User user = new User();
-            user.setUid(id);
-            user.setName(userNameET.getText().toString());
-
-            //CreateUser
-            creatUser(user);
-            // Login User
-            loginUser(id);
 
 
-
-        });*/
-    }
-
-    private void creatUser(User user) {
+    public void CreateUser(String userID, String userName) {
         //Create User
+        user = new User();
+        user.setUid(userID);
+        user.setName(userName);
         CometChat.createUser(user, authKey, new CometChat.CallbackListener<User>() {
             @Override
             public void onSuccess(User user) {
@@ -126,14 +113,25 @@ public class ChatActivity extends AppCompatActivity {
                 Log.e("Error!!! : ", e.getDetails());
             }
         });
-
     }
 
-    private void loginUser() {
-        EditText userIDET = findViewById(R.id.userIDET);
-        String id = userIDET.getText().toString();
+    public void swapToLogin() {
+        FragmentManager fm = getSupportFragmentManager();
+        SignUp_Fragment sf = (SignUp_Fragment) fm.findFragmentByTag("SIGNUP_FRG");
+        Login_Fragment lf = (Login_Fragment) fm.findFragmentByTag("LOGIN_FRG");
+
+        FragmentTransaction trans = fm.beginTransaction();
+        trans.hide(sf);
+        trans.show(lf);
+        trans.commit();
+    }
+
+
+    public void loginUser(String UID) {
+        //EditText userIDET = findViewById(R.id.userIDET);
+        //String id = userIDET.getText().toString();
         if (CometChat.getLoggedInUser() == null) {
-            CometChat.login(id, authKey, new CometChat.CallbackListener<User>() {
+            CometChat.login(UID, authKey, new CometChat.CallbackListener<User>() {
                 @Override
                 public void onSuccess(User user1) {
                     Log.d("Login: ", "Login Successful : " + user1.toString());
@@ -150,6 +148,17 @@ public class ChatActivity extends AppCompatActivity {
             // User already logged in
             redirectToChatPage();
         }
+    }
+
+    public void swapToSignUp() {
+        FragmentManager fm = getSupportFragmentManager();
+        SignUp_Fragment sf = (SignUp_Fragment) fm.findFragmentByTag("SIGNUP_FRG");
+        Login_Fragment lf = (Login_Fragment) fm.findFragmentByTag("LOGIN_FRG");
+
+        FragmentTransaction trans = fm.beginTransaction();
+        trans.hide(lf);
+        trans.show(sf);
+        trans.commit();
     }
 
     private void redirectToChatPage() {

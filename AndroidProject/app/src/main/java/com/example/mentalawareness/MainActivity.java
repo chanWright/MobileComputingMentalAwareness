@@ -7,12 +7,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+//import android.util.Log;
 import android.view.View;
 
-import com.cometchat.pro.core.AppSettings;
-import com.cometchat.pro.core.CometChat;
-import com.cometchat.pro.exceptions.CometChatException;
+//import com.cometchat.pro.core.AppSettings;
+//import com.cometchat.pro.core.CometChat;
+//import com.cometchat.pro.exceptions.CometChatException;
 
 public class MainActivity extends AppCompatActivity {
 
