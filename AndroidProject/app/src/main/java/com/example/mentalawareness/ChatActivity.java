@@ -178,10 +178,6 @@ public class ChatActivity extends AppCompatActivity implements Login_Fragment.Lo
         MainActivity.closeDrawer(dlayout);
     }
 
-    public void ClickAbout(View v) {
-        MainActivity.redirectActivity(this, MainActivity.class);
-    }
-
     public void ClickAwareness(View v) {
         MainActivity.redirectActivity(this, AwarenessActivity.class);
     }
