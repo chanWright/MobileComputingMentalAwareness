@@ -7,19 +7,21 @@
     tools:context=".Chat_Activities.GroupListActivity">
 
     <include
-        layout="@layout/user_header"/>
+        layout="@layout/user_header"
+        android:layout_width="405dp"
+        android:layout_height="76dp" />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/groupRV"
-        android:layout_width="427dp"
-        android:layout_height="529dp"
+        android:layout_width="425dp"
+        android:layout_height="503dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.306" />
+        app:layout_constraintVertical_bias="0.372" />
 
     <Button
         android:id="@+id/createGroupBTN"
