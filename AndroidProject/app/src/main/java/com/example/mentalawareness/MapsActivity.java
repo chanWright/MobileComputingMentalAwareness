@@ -30,10 +30,6 @@ public class MapsActivity extends AppCompatActivity {
         MainActivity.closeDrawer(dlayout);
     }
 
-    public void ClickAbout(View v) {
-        MainActivity.redirectActivity(this, MainActivity.class);
-    }
-
     public void ClickAwareness(View v) {
         MainActivity.redirectActivity(this, AwarenessActivity.class);
     }

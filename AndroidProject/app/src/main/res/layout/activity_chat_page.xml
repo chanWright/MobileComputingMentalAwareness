@@ -8,6 +8,8 @@
 
     <include
         layout="@layout/user_header"
+        android:layout_width="405dp"
+        android:layout_height="76dp"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.stfalcon.chatkit.messages.MessageInput

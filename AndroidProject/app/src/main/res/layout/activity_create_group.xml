@@ -1,34 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".Chat_Activities.CreateGroupActivity">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/groupNameET"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Enter Group Name"
-        android:inputType="textPersonName"
-        android:textAlignment="center" />
 
-    <EditText
-        android:id="@+id/groupIDET"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Enter the group ID"
-        android:inputType="textPersonName"
-        android:textAlignment="center" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/user_header"
+        android:layout_width="405dp"
+        android:layout_height="76dp"
+        tools:layout_editor_absoluteX="-2dp"
+        tools:layout_editor_absoluteY="4dp" />
 
-    <Button
-        android:id="@+id/newGroupBTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create" />
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="411dp"
+        android:layout_height="661dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include"
+        tools:context=".Chat_Activities.CreateGroupActivity">
+
+
+        <EditText
+            android:id="@+id/groupNameET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Enter Group Name"
+            android:inputType="textPersonName"
+            android:textAlignment="center" />
+
+        <EditText
+            android:id="@+id/groupIDET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Enter the group ID"
+            android:inputType="textPersonName"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/newGroupBTN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create" />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
