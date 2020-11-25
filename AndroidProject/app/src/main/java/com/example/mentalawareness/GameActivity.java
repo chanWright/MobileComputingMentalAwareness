@@ -1,9 +1,11 @@
 package com.example.mentalawareness;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.animation.ObjectAnimator;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,6 +22,9 @@ public class GameActivity extends AppCompatActivity{
     TextView timerTV;
     double spawnTime = 5.0;
     int score = 0;
+    double gameTime = 60.0;
+    double maxGameTime = 60.0;
+    boolean gameOver = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +45,56 @@ public class GameActivity extends AppCompatActivity{
                     onGameObjectClick(object);
                     score += 1;
                     scoreTV.setText("Score: "+score);
+                    if(gameOver == true){
+                        resetAlert();
+                    }
                 }
             });
         }
+        resetGame();
     }
 
     // Code for Navigation Begins Here
     public void ClickMenu(View v) {
         MainActivity.openDrawer(dlayout);
 
+    }
+
+    public void resetGame(){
+        gameOver = false;
+        gameTime = maxGameTime;
+        score = 0;
+        scoreTV.setText("Score: "+score);
+        timerTV.setText("Time: "+gameTime);
+        new Thread(new Runnable(){
+            public void run(){
+                double startTime = System.currentTimeMillis()/1000;
+                double timer = 0.0;
+                while(gameTime > 0.0) {
+                    timer = (System.currentTimeMillis() / 1000 - startTime);
+                    gameTime = maxGameTime - timer;
+                    timerTV.setText("Time: "+gameTime);
+                }
+                gameOver = true;
+            }
+        }).start();
+    }
+
+    public void resetAlert(){
+        new AlertDialog.Builder(this).setTitle("Play Again?")
+                .setPositiveButton("Play Again", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        resetGame();
+                    }
+                })
+                .setNegativeButton("Go Back", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        ClickAwareness(dlayout);
+                    }
+                })
+                .show();
     }
 
     public void ClickLogo(View v) {
