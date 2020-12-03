@@ -23,7 +23,7 @@ import com.example.mentalawareness.Chat_Activities.SignUp_Fragment;
 
 public class ChatActivity extends AppCompatActivity implements Login_Fragment.Login_Responder, SignUp_Fragment.SignUp_Responder {
     DrawerLayout dlayout;
-    String authKey = "91672a90de9bc03025323ad1a744b0ddb9c90afa";
+    String authKey = "237640375aca36f6683cffdefdc4db833c241bce";
     User user;
 
     @Override
@@ -77,7 +77,7 @@ public class ChatActivity extends AppCompatActivity implements Login_Fragment.Lo
 
     // Chat implementation begins
     private void initCometChat() {
-        String appID = "249025b30c2a205"; // Replace with your App ID
+        String appID = "26786408a2a5388"; // Replace with your App ID
         String region = "us"; // Replace with your App Region ("eu" or "us")
 
         AppSettings appSettings=new AppSettings.AppSettingsBuilder().subscribePresenceForAllUsers().setRegion(region).build();
