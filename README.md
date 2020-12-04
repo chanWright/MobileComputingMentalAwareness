@@ -14,6 +14,9 @@ Activities: We can have slides that have the general signs, and advice. This adv
 * Chat feature : A community where people can talk with others 
     * CometChat
     * Chatkit for Android
+    * pre-register userID - superhero2, superhero3
+    * no password required
+    * note: when using the same divice or emulator before one can login in another user you must click logout
     
    APIs:
    * CometChat
@@ -22,4 +25,5 @@ Activities: We can have slides that have the general signs, and advice. This adv
 
 Credit:
 YouTube Channel Android Coding: https://www.youtube.com/watch?v=iesMhKUtYT8
+
 YouTube Channel CometChat: https://www.youtube.com/watch?v=cNY8nnzRcw0 
